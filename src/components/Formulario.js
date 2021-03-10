@@ -8,6 +8,7 @@ const Formulario = () => {
     hora: "",
     sintomas: "",
   });
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     setCita({
@@ -17,10 +18,29 @@ const Formulario = () => {
   };
 
   const { mascota, propietario, fecha, hora, sintomas } = cita;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      mascota.trim() === "" ||
+      propietario.trim() === "" ||
+      fecha.trim() === "" ||
+      hora.trim() === "" ||
+      sintomas.trim() === ""
+    ) {
+      setError(true);
+      return;
+    }
+  };
+
   return (
     <Fragment>
       <h2>Crear Citas</h2>
-      <form>
+      {error ? (
+        <p className="alerta-error">Todos los campos son obligatorios</p>
+      ) : null}
+      <form onSubmit={handleSubmit}>
         <label htmlFor="mascota">Nombre Mascotas</label>
         <input
           type="text"

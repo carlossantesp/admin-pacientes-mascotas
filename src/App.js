@@ -1,9 +1,14 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import Formulario from "./components/Formulario";
 import Cita from "./components/Cita";
 
 function App() {
-  const [citas, setCitas] = useState([]);
+  let initCitas = JSON.parse(localStorage.getItem("citas"));
+  if (!initCitas) {
+    initCitas = [];
+  }
+
+  const [citas, setCitas] = useState(initCitas);
 
   const createCita = (cita) => {
     setCitas([...citas, cita]);
@@ -16,6 +21,13 @@ function App() {
 
   const titulo = citas.length === 0 ? "No hay citas" : "Administra tus citas";
 
+  useEffect(() => {
+    if (initCitas) {
+      localStorage.setItem("citas", JSON.stringify(citas));
+    } else {
+      localStorage.setItem("citas", JSON.stringify([]));
+    }
+  }, [citas, initCitas]);
   return (
     <Fragment>
       <h1>Administrador de citas</h1>

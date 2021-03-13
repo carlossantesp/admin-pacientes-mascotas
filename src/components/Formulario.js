@@ -51,59 +51,88 @@ const Formulario = ({ createCita }) => {
 
   return (
     <Fragment>
-      <h2>Crear Citas</h2>
+      <h2 className="text-center font-staatliches uppercase text-2xl mb-8 text-metallic">
+        Registro de Citas
+      </h2>
       {error ? (
-        <p className="alerta-error">Todos los campos son obligatorios</p>
+        <p className="mb-8 w-full bg-red-300 p-2 text-red-800 uppercase text-sm font-bold text-center shadow-md">
+          Todos los campos son obligatorios
+        </p>
       ) : null}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="mascota">Nombre Mascotas</label>
-        <input
-          type="text"
-          name="mascota"
-          className="u-full-width"
-          placeholder="Nombre de mascota"
-          onChange={handleChange}
-          value={mascota}
-        />
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2 mb-2">
+          <label className="font-bold text-xs" htmlFor="mascota">
+            Mascota:
+          </label>
+          <input
+            type="text"
+            name="mascota"
+            className="w-full p-2 rounded-md border-2 border-gray-200 focus:outline-none focus:ring"
+            placeholder="Nombre de la mascota"
+            onChange={handleChange}
+            value={mascota}
+          />
+        </div>
 
-        <label htmlFor="propietario">Nombre Dueño</label>
-        <input
-          type="text"
-          name="propietario"
-          className="u-full-width"
-          placeholder="Nombre Dueño de la mascota"
-          onChange={handleChange}
-          value={propietario}
-        />
+        <div className="flex flex-col gap-2 mb-2">
+          <label className="font-bold text-xs" htmlFor="propietario">
+            Dueño:
+          </label>
+          <input
+            type="text"
+            name="propietario"
+            className="w-full p-2 rounded-md border-2 border-gray-200 focus:outline-none focus:ring"
+            placeholder="Nombre del dueño de la mascota"
+            onChange={handleChange}
+            value={propietario}
+          />
+        </div>
 
-        <label htmlFor="fecha">Fecha</label>
-        <input
-          type="date"
-          name="fecha"
-          className="u-full-width"
-          onChange={handleChange}
-          value={fecha}
-        />
+        <div className="flex flex-col gap-2 mb-2">
+          <label className="font-bold text-xs" htmlFor="fecha">
+            Fecha atención:
+          </label>
+          <input
+            type="date"
+            name="fecha"
+            className="w-full p-2 rounded-md border-2 border-gray-200 focus:outline-none focus:ring"
+            onChange={handleChange}
+            value={fecha}
+          />
+        </div>
 
-        <label htmlFor="hora">Hora</label>
-        <input
-          type="time"
-          name="hora"
-          className="u-full-width"
-          onChange={handleChange}
-          value={hora}
-        />
+        <div className="flex flex-col gap-2 mb-2">
+          <label className="font-bold text-xs" htmlFor="hora">
+            Hora atención:
+          </label>
+          <input
+            type="time"
+            name="hora"
+            className="w-full p-2 rounded-md border-2 border-gray-200 focus:outline-none focus:ring"
+            onChange={handleChange}
+            value={hora}
+          />
+        </div>
 
-        <label htmlFor="sintomas">Síntomas</label>
-        <textarea
-          name="sintomas"
-          className="u-full-width"
-          onChange={handleChange}
-          value={sintomas}
-        ></textarea>
+        <div className="flex flex-col gap-2 mb-2">
+          <label className="font-bold text-xs" htmlFor="sintomas">
+            Síntomas:
+          </label>
+          <textarea
+            name="sintomas"
+            className="w-full p-2 rounded-md border-2 border-gray-200 focus:outline-none focus:ring"
+            onChange={handleChange}
+            value={sintomas}
+            placeholder="Breve descripción de los síntomas de la mascota"
+            rows="4"
+          ></textarea>
+        </div>
 
-        <button type="submit" className="u-full-width button-primary">
-          Agregar Cita
+        <button
+          type="submit"
+          className="p-3 bg-orange-100 rounded-full text-gray-100 font-bold shadow-md hover:course hover:bg-orange-200"
+        >
+          Agregar cita
         </button>
       </form>
     </Fragment>

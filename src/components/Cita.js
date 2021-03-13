@@ -2,40 +2,42 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Cita = ({ cita, deleteCita }) => (
-  <div className="cita">
-    <p>
+  <article className="bg-yellow-50 p-8 rounded-lg shadow-md w-64 relative">
+    <p className="font-bold text-sea mb-1">
       {" "}
       Mascota:
-      <span>{cita.mascota}</span>
+      <span className="text-chocolate font-normal ml-2">{cita.mascota}</span>
     </p>
-    <p>
+    <p className="font-bold text-sea mb-1">
       {" "}
       Dueño:
-      <span>{cita.propietario}</span>
+      <span className="text-chocolate font-normal ml-2">
+        {cita.propietario}
+      </span>
     </p>
-    <p>
+    <p className="font-bold text-sea mb-1">
       {" "}
       Fecha:
-      <span>{cita.fecha}</span>
+      <span className="text-chocolate font-normal ml-2">{cita.fecha}</span>
     </p>
-    <p>
+    <p className="font-bold text-sea mb-1">
       {" "}
       Hora:
-      <span>{cita.hora}</span>
+      <span className="text-chocolate font-normal ml-2">{cita.hora}</span>
     </p>
-    <p>
+    <p className="font-bold text-sea mb-1">
       {" "}
       Síntomas:
-      <span>{cita.sintomas}</span>
+      <span className="text-chocolate font-normal block">{cita.sintomas}</span>
     </p>
 
     <button
-      className="button eliminar u-full-width"
+      className="absolute top-2 right-2 text-xl text-gray-800 hover:bg-gray-200 px-2 py-1 leading-none rounded-full"
       onClick={() => deleteCita(cita.id)}
     >
-      Eliminar &times;
+      &times;
     </button>
-  </div>
+  </article>
 );
 
 Cita.propTypes = {

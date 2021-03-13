@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import uuid from "uuid/dist/v4";
+import { FaPlusCircle } from "react-icons/fa";
 import PropTypes from "prop-types";
 
 const Formulario = ({ createCita }) => {
@@ -130,9 +131,9 @@ const Formulario = ({ createCita }) => {
 
         <button
           type="submit"
-          className="p-3 bg-orange-100 rounded-full text-gray-100 font-bold shadow-md hover:course hover:bg-orange-200"
+          className="p-3 bg-orange-100 rounded-full text-gray-100 font-bold shadow-md hover:bg-orange-200"
         >
-          Agregar cita
+          <FaPlusCircle className="inline-block mr-2" /> Agregar cita
         </button>
       </form>
     </Fragment>

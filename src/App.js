@@ -27,10 +27,11 @@ function App() {
       localStorage.setItem("citas", JSON.stringify([]));
     }
   }, [citas, initCitas]);
+
   return (
     <Fragment>
       {/* Cabecera */}
-      <Header titulo="Administrador de citas" />
+      <Header titulo="Administrador de citas para atención de mascotas" />
       {/* Main principal */}
       <main className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-12 gap-2 md:gap-4 h-full">
         {/* Aside Formulario */}

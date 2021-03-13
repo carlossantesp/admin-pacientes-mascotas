@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 
 const Cita = ({ cita, deleteCita }) => (
   <article className="bg-yellow-50 p-8 rounded-lg shadow-md w-64 relative">
@@ -18,7 +19,9 @@ const Cita = ({ cita, deleteCita }) => (
     <p className="font-bold text-sea mb-1">
       {" "}
       Fecha:
-      <span className="text-chocolate font-normal ml-2">{cita.fecha}</span>
+      <span className="text-chocolate font-normal ml-2">
+        {moment(cita.fecha).format("D/MM/YYYY")}
+      </span>
     </p>
     <p className="font-bold text-sea mb-1">
       {" "}
